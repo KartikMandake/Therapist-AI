@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "91245428941",
+    "project_id": "therapistaiapp",
+    "storage_bucket": "therapistaiapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91245428941:android:66828a4ab949e0e52b6984",
+        "android_client_info": {
+          "package_name": "com.example.therapistai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91245428941-6mjbq5p0attebjgot7172pbi515oglmm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.therapistai",
+            "certificate_hash": "75cd7c1f0fdb88b5c598a1c56d0c747071c18717"
+          }
+        },
+        {
+          "client_id": "91245428941-d01ebmoh2n9q00o08iu2hlv8bcktg43v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYrEHv2Ub45-xXq6ubg7MWBtV-Xrb2DuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91245428941-d01ebmoh2n9q00o08iu2hlv8bcktg43v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

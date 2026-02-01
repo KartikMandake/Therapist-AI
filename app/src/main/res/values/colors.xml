@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Original colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Therapist AI Theme - Soothing Pastel Colors -->
+    <color name="primary_color">#6B73FF</color>
+    <color name="primary_variant">#5A63E8</color>
+    <color name="secondary_color">#9C88FF</color>
+    <color name="background_color">#F8F9FF</color>
+    <color name="surface_color">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    
+    <!-- Text colors -->
+    <color name="primary_text_color">#2D3748</color>
+    <color name="secondary_text_color">#718096</color>
+    <color name="hint_color">#A0AEC0</color>
+    
+    <!-- Message colors -->
+    <color name="user_message_background">#6B73FF</color>
+    <color name="user_message_text">#FFFFFF</color>
+    <color name="ai_message_background">#E6FFFA</color>
+    <color name="ai_message_text">#2D3748</color>
+    
+    <!-- Status colors -->
+    <color name="success_color">#48BB78</color>
+    <color name="error_color">#F56565</color>
+    <color name="warning_color">#ED8936</color>
+</resources>

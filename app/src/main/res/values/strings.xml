@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Therapist AI</string>
+    <string name="welcome_message">Hello! I\'m here to listen and support you. How are you feeling today?</string>
+    <string name="input_hint">How are you feeling today?</string>
+    <string name="send_button">Send</string>
+    <string name="thinking">Thinking...</string>
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="error_api_key">Please configure your API key.</string>
+</resources>
