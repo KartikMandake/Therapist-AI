@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     // UI Components
     private TextInputEditText etUserMessage;
     private MaterialButton btnSendMessage;
+    private MaterialButton btnProfile;
     private RecyclerView rvChatMessages;
     private LinearLayout llLoadingIndicator;
     
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeViews() {
         etUserMessage = findViewById(R.id.etUserMessage);
         btnSendMessage = findViewById(R.id.btnSendMessage);
+        btnProfile = findViewById(R.id.btnProfile);
         rvChatMessages = findViewById(R.id.rvChatMessages);
         llLoadingIndicator = findViewById(R.id.llLoadingIndicator);
     }
@@ -130,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setupClickListeners() {
         btnSendMessage.setOnClickListener(v -> sendMessage());
+        btnProfile.setOnClickListener(v -> openProfile());
         
         // Allow sending message with Enter key
         etUserMessage.setOnEditorActionListener((v, actionId, event) -> {
