@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private MaterialButton btnProfile;
     private RecyclerView rvChatMessages;
     private LinearLayout llLoadingIndicator;
+    private TextView tvTherapistType;
     
     // Chat functionality
     private ChatAdapter chatAdapter;
@@ -44,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
     
     // Firebase Authentication
     private FirebaseAuth firebaseAuth;
+    
+    // Therapist type selection
+    private String therapistType = "General Support";
+    private String therapistEmoji = "💙";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
         
         // Check if user is signed in, if not redirect to login
         checkUserAuthentication();
+        
+        // Get therapist type from intent
+        getTherapistTypeFromIntent();
         
         // Initialize UI components
         initializeViews();
@@ -70,6 +79,22 @@ public class MainActivity extends AppCompatActivity {
         
         // Add welcome message
         addWelcomeMessage();
+    }
+    
+    /**
+     * Get therapist type from intent extras
+     */
+    private void getTherapistTypeFromIntent() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            therapistType = intent.getStringExtra("THERAPIST_TYPE");
+            therapistEmoji = intent.getStringExtra("THERAPIST_EMOJI");
+            
+            if (therapistType == null) {
+                therapistType = "General Support";
+                therapistEmoji = "💙";
+            }
+        }
     }
     
     /**
@@ -114,6 +139,39 @@ public class MainActivity extends AppCompatActivity {
         btnProfile = findViewById(R.id.btnProfile);
         rvChatMessages = findViewById(R.id.rvChatMessages);
         llLoadingIndicator = findViewById(R.id.llLoadingIndicator);
+        tvTherapistType = findViewById(R.id.tvTherapistType);
+        
+        // Set therapist type badge
+        updateTherapistTypeBadge();
+    }
+    
+    /**
+     * Update the therapist type badge in the header
+     */
+    private void updateTherapistTypeBadge() {
+        String badgeText = therapistEmoji + " " + getShortTherapistType();
+        tvTherapistType.setText(badgeText);
+    }
+    
+    /**
+     * Get shortened therapist type for badge
+     */
+    private String getShortTherapistType() {
+        switch (therapistType) {
+            case "Love & Relationships":
+                return "Love";
+            case "Anxiety & Worry":
+                return "Anxiety";
+            case "Career & Growth":
+                return "Career";
+            case "Depression & Mood":
+                return "Depression";
+            case "Stress Management":
+                return "Stress";
+            case "General Support":
+            default:
+                return "General";
+        }
     }
     
     /**
@@ -148,14 +206,49 @@ public class MainActivity extends AppCompatActivity {
      * Add a welcome message when the app starts
      */
     private void addWelcomeMessage() {
-        String welcomeText = "Hello! I'm here to listen and support you. " +
-                "Feel free to share what's on your mind - whether you're feeling stressed, " +
-                "anxious, happy, or anything in between. How are you doing today? 💙";
+        String welcomeText = getPersonalizedWelcomeMessage();
         
         ChatMessage welcomeMessage = new ChatMessage(welcomeText, false);
         chatMessages.add(welcomeMessage);
         chatAdapter.notifyItemInserted(chatMessages.size() - 1);
         scrollToBottom();
+    }
+    
+    /**
+     * Get personalized welcome message based on therapist type
+     */
+    private String getPersonalizedWelcomeMessage() {
+        String baseGreeting = "Hello! " + therapistEmoji + " I'm here to support you with ";
+        
+        switch (therapistType) {
+            case "Love & Relationships":
+                return baseGreeting + "love and relationships. Whether you're navigating a new relationship, " +
+                        "working through challenges, or healing from heartbreak, I'm here to listen. " +
+                        "What's on your heart today?";
+                
+            case "Anxiety & Worry":
+                return baseGreeting + "anxiety and worry. It's okay to feel anxious - your feelings are valid. " +
+                        "Let's work through this together. What's been weighing on your mind?";
+                
+            case "Career & Growth":
+                return baseGreeting + "career and personal growth. Whether you're facing workplace challenges, " +
+                        "considering a career change, or seeking growth opportunities, I'm here to help. " +
+                        "What would you like to explore today?";
+                
+            case "Depression & Mood":
+                return baseGreeting + "depression and mood. I understand that some days are harder than others. " +
+                        "You're not alone, and it's brave of you to reach out. How are you feeling today?";
+                
+            case "Stress Management":
+                return baseGreeting + "stress management. Life can be overwhelming, and it's important to take care " +
+                        "of yourself. Let's find ways to help you feel more balanced. What's causing you stress?";
+                
+            case "General Support":
+            default:
+                return "Hello! " + therapistEmoji + " I'm here to listen and support you. " +
+                        "Feel free to share what's on your mind - whether you're feeling stressed, " +
+                        "anxious, happy, or anything in between. How are you doing today?";
+        }
     }
     
     /**
@@ -233,11 +326,34 @@ public class MainActivity extends AppCompatActivity {
      * Create a therapeutic prompt for the AI
      */
     private String createTherapeuticPrompt(String userMessage) {
-        return "You are a compassionate AI therapist assistant. Your role is to provide emotional support, " +
-                "active listening, and gentle guidance. Please respond to the following message with empathy " +
-                "and care. Offer comfort, validation, and helpful coping strategies when appropriate. " +
-                "Keep responses warm, supportive, and around 2-3 sentences. Do not provide medical advice. " +
-                "User message: \"" + userMessage + "\"";
+        String specialization = getTherapistSpecialization();
+        
+        return "You are a compassionate AI therapist assistant specializing in " + specialization + ". " +
+                "Your role is to provide emotional support, active listening, and gentle guidance. " +
+                "Please respond to the following message with empathy and care. Offer comfort, validation, " +
+                "and helpful coping strategies when appropriate. Keep responses warm, supportive, and around 2-3 sentences. " +
+                "Do not provide medical advice. User message: \"" + userMessage + "\"";
+    }
+    
+    /**
+     * Get therapist specialization text for AI prompt
+     */
+    private String getTherapistSpecialization() {
+        switch (therapistType) {
+            case "Love & Relationships":
+                return "love, relationships, and emotional connections";
+            case "Anxiety & Worry":
+                return "anxiety, worry, and stress management";
+            case "Career & Growth":
+                return "career development, workplace challenges, and personal growth";
+            case "Depression & Mood":
+                return "depression, mood disorders, and emotional wellbeing";
+            case "Stress Management":
+                return "stress management, relaxation techniques, and work-life balance";
+            case "General Support":
+            default:
+                return "general emotional support and mental wellbeing";
+        }
     }
     
     /**
@@ -291,7 +407,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         
-        if (id == R.id.action_profile) {
+        if (id == R.id.action_change_therapist) {
+            changeTherapistType();
+            return true;
+        } else if (id == R.id.action_profile) {
             openProfile();
             return true;
         } else if (id == R.id.action_clear_chat) {
@@ -303,6 +422,15 @@ public class MainActivity extends AppCompatActivity {
         }
         
         return super.onOptionsItemSelected(item);
+    }
+    
+    /**
+     * Change therapist type - navigate back to selection
+     */
+    private void changeTherapistType() {
+        Intent intent = new Intent(MainActivity.this, TherapistSelectionActivity.class);
+        startActivity(intent);
+        finish();
     }
     
     /**
