@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         // Check if user is already signed in
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if (currentUser != null) {
-            // User is already signed in, go to main activity
+            // User is already signed in, go to welcome activity
             navigateToMainActivity();
             return;
         }
@@ -213,10 +213,10 @@ public class LoginActivity extends AppCompatActivity {
     }
     
     /**
-     * Navigate to MainActivity after successful authentication
+     * Navigate to WelcomeActivity after successful authentication
      */
     private void navigateToMainActivity() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

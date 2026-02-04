@@ -17,8 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileActivity extends AppCompatActivity {
     
     // UI Components
-    private TextView tvUserEmail, tvUserType;
-    private MaterialButton btnChangePassword, btnDeleteAccount, btnBack;
+    private TextView tvUserEmail, tvUserType, tvSessionCount, tvAppVersion;
+    private MaterialButton btnChangePassword, btnDeleteAccount, btnBack, btnNotifications, btnAbout;
     
     // Firebase Authentication
     private FirebaseAuth firebaseAuth;
@@ -49,8 +49,12 @@ public class ProfileActivity extends AppCompatActivity {
     private void initializeViews() {
         tvUserEmail = findViewById(R.id.tvUserEmail);
         tvUserType = findViewById(R.id.tvUserType);
+        tvSessionCount = findViewById(R.id.tvSessionCount);
+        tvAppVersion = findViewById(R.id.tvAppVersion);
         btnChangePassword = findViewById(R.id.btnChangePassword);
         btnDeleteAccount = findViewById(R.id.btnDeleteAccount);
+        btnNotifications = findViewById(R.id.btnNotifications);
+        btnAbout = findViewById(R.id.btnAbout);
         btnBack = findViewById(R.id.btnBack);
     }
     
@@ -71,6 +75,21 @@ public class ProfileActivity extends AppCompatActivity {
                 tvUserType.setText("Registered User");
             }
         }
+        
+        // Display session count
+        int sessionCount = loadSessionCount();
+        tvSessionCount.setText("Sessions: " + sessionCount);
+        
+        // Display app version
+        tvAppVersion.setText("App Version: 1.0.0");
+    }
+    
+    /**
+     * Load session count (can be enhanced with SharedPreferences or database)
+     */
+    private int loadSessionCount() {
+        return getSharedPreferences("therapist_ai", MODE_PRIVATE)
+                .getInt("session_count", 1);
     }
     
     /**
@@ -89,6 +108,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
         
         btnDeleteAccount.setOnClickListener(v -> showDeleteAccountDialog());
+        
+        btnNotifications.setOnClickListener(v -> showNotificationsSettings());
+        
+        btnAbout.setOnClickListener(v -> showAboutDialog());
     }
     
     /**
@@ -146,5 +169,32 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
+    
+    /**
+     * Show notifications settings dialog
+     */
+    private void showNotificationsSettings() {
+        new AlertDialog.Builder(this)
+                .setTitle("Notifications Settings")
+                .setMessage("Notifications are currently enabled. You can customize notification preferences here.")
+                .setPositiveButton("OK", null)
+                .show();
+    }
+    
+    /**
+     * Show about dialog with app information
+     */
+    private void showAboutDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("About Therapist AI")
+                .setMessage("Therapist AI v1.0.0\n\n" +
+                        "A compassionate AI companion app providing emotional support through conversational AI. " +
+                        "Powered by Google Gemini API.\n\n" +
+                        "© 2026 Therapist AI. All rights reserved.\n\n" +
+                        "Always remember: This app is not a substitute for professional mental health services. " +
+                        "If you're experiencing a mental health crisis, please contact a mental health professional.")
+                .setPositiveButton("OK", null)
+                .show();
     }
 }
