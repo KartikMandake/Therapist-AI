@@ -34,17 +34,31 @@
             android:textStyle="bold"
             android:fontFamily="sans-serif-medium" />
 
+        <!-- Clear Chat Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClearChat"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="Start new chat"
+            android:text="New Chat"
+            android:textSize="18sp"
+            app:backgroundTint="@color/primary_color"
+            app:cornerRadius="24dp" />
+
         <!-- Profile Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnProfile"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:contentDescription="Open Profile"
-            app:cornerRadius="24dp"
             app:backgroundTint="@color/primary_color"
-            app:icon="@drawable/ic_profile"
-            app:iconTint="@android:color/white"
-            style="@style/Widget.MaterialComponents.Button" />
+            app:cornerRadius="24dp"
+            app:icon="@drawable/_033143"
+            app:iconPadding="2dp"
+            app:iconTint="@color/black" />
 
     </LinearLayout>
 
@@ -56,12 +70,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:text="You are stronger than you think, and every step forward matters. 💙"
+        android:fontFamily="sans-serif-light"
+        android:text="You are stronger than you think, and every step forward matters."
         android:textAlignment="center"
         android:textColor="@color/secondary_text_color"
         android:textSize="16sp"
         android:textStyle="italic"
-        android:fontFamily="sans-serif-light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llHeaderContainer" />
