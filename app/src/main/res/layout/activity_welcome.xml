@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome_gradient_background"
+    android:padding="24dp">
+
+    <!-- Welcome Icon/Logo -->
+    <TextView
+        android:id="@+id/tvWelcomeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🧠💙"
+        android:textSize="80sp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Welcome Title -->
+    <TextView
+        android:id="@+id/tvWelcomeTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Welcome to Your Safe Space"
+        android:textAlignment="center"
+        android:textColor="@color/primary_text_color"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeIcon" />
+
+    <!-- Welcome Subtitle -->
+    <TextView
+        android:id="@+id/tvWelcomeSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="A compassionate AI companion ready to listen, support, and guide you through life's challenges"
+        android:textAlignment="center"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="18sp"
+        android:lineSpacingExtra="4dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeTitle" />
+
+    <!-- Motivational Quote Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMotivationalCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeSubtitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✨"
+                android:textSize="32sp"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tvMotivationalQuote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="You are stronger than you think, braver than you believe, and more capable than you imagine."
+                android:textAlignment="center"
+                android:textColor="@color/primary_text_color"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:lineSpacingExtra="4dp"
+                android:alpha="0"
+                android:fontFamily="serif" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Get Started Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGetStarted"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="48dp"
+        android:text="Get Started"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:alpha="0"
+        app:cornerRadius="32dp"
+        app:backgroundTint="@color/primary_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

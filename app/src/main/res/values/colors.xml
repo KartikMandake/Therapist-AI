@@ -27,4 +27,29 @@
     <color name="success_color">#48BB78</color>
     <color name="error_color">#F56565</color>
     <color name="warning_color">#ED8936</color>
+    
+    <!-- Therapist Category Colors -->
+    <color name="love_accent">#FF6B9D</color>
+    <color name="love_light">#FFE5EE</color>
+    <color name="love_shadow">#33FF6B9D</color>
+    
+    <color name="anxiety_accent">#6B9FFF</color>
+    <color name="anxiety_light">#E5F0FF</color>
+    <color name="anxiety_shadow">#336B9FFF</color>
+    
+    <color name="career_accent">#4ECDC4</color>
+    <color name="career_light">#E0F7F6</color>
+    <color name="career_shadow">#334ECDC4</color>
+    
+    <color name="depression_accent">#9B8FFF</color>
+    <color name="depression_light">#F0EDFF</color>
+    <color name="depression_shadow">#339B8FFF</color>
+    
+    <color name="stress_accent">#FFB366</color>
+    <color name="stress_light">#FFF0E5</color>
+    <color name="stress_shadow">#33FFB366</color>
+    
+    <color name="general_accent">#6BB6FF</color>
+    <color name="general_light">#E5F3FF</color>
+    <color name="general_shadow">#336BB6FF</color>
 </resources>
