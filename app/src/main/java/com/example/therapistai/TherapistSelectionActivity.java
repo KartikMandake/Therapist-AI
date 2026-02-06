@@ -18,7 +18,6 @@ import com.google.android.material.card.MaterialCardView;
  */
 public class TherapistSelectionActivity extends AppCompatActivity {
     
-    private TextView tvSelectionTitle;
     private MaterialCardView cardLove, cardAnxiety, cardCareer, cardGeneral, cardDepression, cardStress;
     
     @Override
@@ -64,12 +63,6 @@ public class TherapistSelectionActivity extends AppCompatActivity {
         titleFade.start();
         
         // Animate cards with stagger effect
-        animateCard(cardLove, 100);
-        animateCard(cardAnxiety, 200);
-        animateCard(cardCareer, 300);
-        animateCard(cardGeneral, 400);
-        animateCard(cardDepression, 500);
-        animateCard(cardStress, 600);
     }
     
     private void animateCard(View card, long delay) {
