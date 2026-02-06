@@ -18,6 +18,7 @@ import com.google.android.material.card.MaterialCardView;
  */
 public class TherapistSelectionActivity extends AppCompatActivity {
     
+    private TextView tvSelectionTitle, tvSkipOption;
     private MaterialCardView cardLove, cardAnxiety, cardCareer, cardGeneral, cardDepression, cardStress;
     
     @Override
@@ -32,6 +33,7 @@ public class TherapistSelectionActivity extends AppCompatActivity {
     
     private void initializeViews() {
         tvSelectionTitle = findViewById(R.id.tvSelectionTitle);
+        tvSkipOption = findViewById(R.id.tvSkipOption);
         cardLove = findViewById(R.id.cardLove);
         cardAnxiety = findViewById(R.id.cardAnxiety);
         cardCareer = findViewById(R.id.cardCareer);
@@ -47,6 +49,11 @@ public class TherapistSelectionActivity extends AppCompatActivity {
         setupCardClickListener(cardGeneral, "General Support", "💙");
         setupCardClickListener(cardDepression, "Depression & Mood", "🌧️");
         setupCardClickListener(cardStress, "Stress Management", "😓");
+        
+        // Skip option
+        tvSkipOption.setOnClickListener(v -> {
+            selectTherapistType("General Support", "💙");
+        });
     }
     
     private void setupCardClickListener(MaterialCardView card, String type, String emoji) {
@@ -63,6 +70,19 @@ public class TherapistSelectionActivity extends AppCompatActivity {
         titleFade.start();
         
         // Animate cards with stagger effect
+        animateCard(cardLove, 150);
+        animateCard(cardAnxiety, 250);
+        animateCard(cardCareer, 250);
+        animateCard(cardDepression, 350);
+        animateCard(cardStress, 350);
+        animateCard(cardGeneral, 450);
+        
+        // Fade in skip option
+        tvSkipOption.setAlpha(0f);
+        ObjectAnimator skipFade = ObjectAnimator.ofFloat(tvSkipOption, "alpha", 0f, 1f);
+        skipFade.setDuration(500);
+        skipFade.setStartDelay(600);
+        skipFade.start();
     }
     
     private void animateCard(View card, long delay) {
