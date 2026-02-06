@@ -91,7 +91,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_card_general">
+                    android:background="@drawable/bg_card_love">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -157,7 +157,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_card_general">
+                    android:background="@drawable/bg_card_anxiety">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -222,7 +222,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_card_general">
+                    android:background="@drawable/bg_card_career">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -288,7 +288,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_card_general">
+                    android:background="@drawable/bg_card_depression">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -353,7 +353,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_card_general">
+                    android:background="@drawable/bg_card_stress">
 
                     <LinearLayout
                         android:layout_width="match_parent"

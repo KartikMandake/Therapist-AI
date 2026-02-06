@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private MaterialButton btnSendMessage;
     private MaterialButton btnClearChat;
     private MaterialButton btnProfile;
+    private MaterialButton btnBackToSelection;
     private RecyclerView rvChatMessages;
     private LinearLayout llLoadingIndicator;
     private TextView tvTherapistType;
@@ -137,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         btnSendMessage = findViewById(R.id.btnSendMessage);
         btnClearChat = findViewById(R.id.btnClearChat);
         btnProfile = findViewById(R.id.btnProfile);
+        btnBackToSelection = findViewById(R.id.btnBackToSelection);
         rvChatMessages = findViewById(R.id.rvChatMessages);
         llLoadingIndicator = findViewById(R.id.llLoadingIndicator);
         tvTherapistType = findViewById(R.id.tvTherapistType);
@@ -197,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         btnSendMessage.setOnClickListener(v -> sendMessage());
         btnClearChat.setOnClickListener(v -> clearChat());
         btnProfile.setOnClickListener(v -> openProfile());
+        btnBackToSelection.setOnClickListener(v -> changeTherapistType());
         
         // Allow sending message with Enter key
         etUserMessage.setOnEditorActionListener((v, actionId, event) -> {
