@@ -22,6 +22,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Back Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBackToSelection"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Back to therapist selection"
+            android:text="Back"
+            android:textSize="14sp"
+            android:textColor="@color/primary_color"
+            app:icon="@android:drawable/ic_media_previous"
+            app:iconTint="@color/primary_color"
+            app:iconSize="18dp"
+            app:iconPadding="4dp" />
+
         <!-- App Title -->
         <TextView
             android:id="@+id/tvAppTitle"
