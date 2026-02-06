@@ -28,37 +28,62 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
             android:text="Therapist AI"
             android:textColor="@color/primary_color"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-medium" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-        <!-- Clear Chat Button -->
+        <!-- Therapist Type Badge -->
+        <TextView
+            android:id="@+id/tvTherapistType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/therapist_badge_background"
+            android:paddingStart="12dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="6dp"
+            android:text="💙 General"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- New Chat Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnClearChat"
-            style="@style/Widget.MaterialComponents.Button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginEnd="12dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
             android:contentDescription="Start new chat"
             android:text="New Chat"
-            android:textSize="18sp"
-            app:backgroundTint="@color/primary_color"
-            app:cornerRadius="24dp" />
+            android:textSize="14sp"
+            android:textColor="@color/primary_color"
+            app:icon="@android:drawable/ic_menu_add"
+            app:iconTint="@color/primary_color"
+            app:iconSize="18dp"
+            app:iconPadding="4dp" />
 
         <!-- Profile Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnProfile"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:contentDescription="Open Profile"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
             app:backgroundTint="@color/primary_color"
-            app:cornerRadius="24dp"
+            app:cornerRadius="20dp"
             app:icon="@drawable/_033143"
-            app:iconPadding="2dp"
-            app:iconTint="@color/black" />
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="20dp"
+            app:iconTint="@color/white" />
 
     </LinearLayout>
 
