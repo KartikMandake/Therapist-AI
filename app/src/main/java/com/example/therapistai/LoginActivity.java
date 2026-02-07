@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     
     // Firebase Authentication
     private FirebaseAuth firebaseAuth;
-    
+    //just a login push
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
