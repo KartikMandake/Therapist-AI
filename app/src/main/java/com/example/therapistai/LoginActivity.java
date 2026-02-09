@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText etEmail, etPassword;
     private MaterialButton btnLogin, btnRegister, btnGuestAccess;
     private ProgressBar progressBar;
-    
+    //commit
     // Firebase Authentication
     private FirebaseAuth firebaseAuth;
     //just a login push
