@@ -145,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
         
         // Set therapist type badge
         updateTherapistTypeBadge();
+        
+        // Setup bottom navigation
+        setupBottomNavigation();
     }
     
     /**
@@ -202,6 +205,41 @@ public class MainActivity extends AppCompatActivity {
         etUserMessage.setOnEditorActionListener((v, actionId, event) -> {
             sendMessage();
             return true;
+        });
+    }
+    
+    /**
+     * Setup bottom navigation bar
+     */
+    private void setupBottomNavigation() {
+        com.google.android.material.bottomnavigation.BottomNavigationView bottomNav = 
+            findViewById(R.id.bottomNavigation);
+        
+        bottomNav.setSelectedItemId(R.id.nav_chat);
+        
+        bottomNav.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            
+            if (itemId == R.id.nav_chat) {
+                // Already on chat screen
+                return true;
+            } else if (itemId == R.id.nav_mood) {
+                // Navigate to mood tracking
+                Intent intent = new Intent(MainActivity.this, MoodTrackingActivity.class);
+                startActivity(intent);
+                return true;
+            } else if (itemId == R.id.nav_history) {
+                // Navigate to mood history
+                Intent intent = new Intent(MainActivity.this, MoodHistoryActivity.class);
+                startActivity(intent);
+                return true;
+            } else if (itemId == R.id.nav_profile) {
+                // Navigate to profile
+                openProfile();
+                return true;
+            }
+            
+            return false;
         });
     }
     

@@ -41,6 +41,16 @@
             android:name=".ProfileActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".MoodTrackingActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".MoodHistoryActivity"
+            android:exported="false"
+            android:parentActivityName=".MoodTrackingActivity" />
     </application>
 
 </manifest>
