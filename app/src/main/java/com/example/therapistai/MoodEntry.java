@@ -9,7 +9,7 @@ public class MoodEntry {
     private float averageScore;
     private String note;
     private List<Integer> questionAnswers;
-    
+    // Constructor
     public MoodEntry(long timestamp, String moodLabel, int moodScore, 
                      float averageScore, String note, List<Integer> questionAnswers) {
         this.timestamp = timestamp;

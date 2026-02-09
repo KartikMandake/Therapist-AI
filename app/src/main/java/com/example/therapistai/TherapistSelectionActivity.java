@@ -64,14 +64,21 @@ public class TherapistSelectionActivity extends AppCompatActivity {
         
         // Animate cards with stagger effect
     }
-    
+    // Animate cards with stagger effect
+        animateCard(cardLove, 200);
+        animateCard(cardAnxiety, 400);
+        animateCard(cardCareer, 600);
+        animateCard(cardGeneral, 800);
+        animateCard(cardDepression, 1000);
+        animateCard(cardStress, 1200);
+    }
     private void animateCard(View card, long delay) {
         card.setAlpha(0f);
         card.setTranslationY(50f);
         
         ObjectAnimator fadeIn = ObjectAnimator.ofFloat(card, "alpha", 0f, 1f);
         ObjectAnimator slideUp = ObjectAnimator.ofFloat(card, "translationY", 50f, 0f);
-        
+        // Set duration and delay for staggered effect
         fadeIn.setDuration(500);
         slideUp.setDuration(500);
         fadeIn.setStartDelay(delay);
@@ -82,7 +89,7 @@ public class TherapistSelectionActivity extends AppCompatActivity {
         fadeIn.start();
         slideUp.start();
     }
-    
+    // Handle therapist type selection and navigate to MainActivity
     private void selectTherapistType(String type, String emoji) {
         // Navigate to MainActivity with selected type
         Intent intent = new Intent(TherapistSelectionActivity.this, MainActivity.class);
@@ -92,7 +99,7 @@ public class TherapistSelectionActivity extends AppCompatActivity {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
-    
+    // Animate card selection with a quick scale effect
     private void animateCardSelection(View card) {
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(card, "scaleX", 1f, 0.95f, 1.05f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(card, "scaleY", 1f, 0.95f, 1.05f);
