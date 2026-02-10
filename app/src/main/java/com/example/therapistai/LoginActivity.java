@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser() {
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
-        
+        //comment
         // Validate input
         if (!validateInput(email, password)) {
             return;
